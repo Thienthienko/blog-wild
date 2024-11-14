@@ -21,8 +21,11 @@
 </div> -->
 <div class="articleList">
   @for (article of articles; track $index){
+
   <div class="card">
-    <img src="{{ article.image }}" />
+    <a [routerLink]="['/article', article.id]">
+      <img src="{{ article.image }}" />
+    </a>
     <div class="card-Container">
       <p [ngStyle]="{ color: article.isPublished ? 'green' : 'red' }">
         <b>Article {{ article.isPublished ? "publié" : "non publié" }}</b>
@@ -39,6 +42,7 @@
       </button>
     </div>
   </div>
+
   } @if (visibleArticleLength == 0){
   <p>Il n'y a aucun article publié pour le moment</p>
   }
